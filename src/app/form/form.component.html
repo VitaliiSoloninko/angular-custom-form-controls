@@ -1,0 +1,12 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Course title</mat-label>
+    <input matInput placeholder="Course title" formControlName="title" />
+  </mat-form-field>
+
+  <input type="checkbox" placeholder="Free course" formControlName="free" />
+
+  <textarea placeholder="Description" formControlName="longDescription">
+  </textarea>
+  <button type="submit">Submit</button>
+</form>
