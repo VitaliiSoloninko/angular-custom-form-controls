@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormComponent } from './form/form.component';
+import { FormCustomComponent } from './form-custom/form-custom.component';
 
 @Component({
   selector: 'app-root',
-  imports: [MatSlideToggleModule, FormComponent],
+  imports: [MatSlideToggleModule, FormCustomComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
