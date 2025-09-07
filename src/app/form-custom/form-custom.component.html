@@ -1,3 +1,14 @@
-<p>form-custom works!</p>
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Course title</mat-label>
+    <input matInput placeholder="Course title" formControlName="title" />
+  </mat-form-field>
 
-<app-choose-quantity></app-choose-quantity>
+  <app-choose-quantity
+    [increment]="10"
+    formControlName="totalQuantity"
+  ></app-choose-quantity>
+
+  <button type="submit">Submit</button>
+  <button matButton="outlined">Basic</button>
+</form>
