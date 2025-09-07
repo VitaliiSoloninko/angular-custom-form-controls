@@ -36,7 +36,6 @@ export class FormCustomComponent implements OnInit {
     console.log(this.form.value);
     this.form.reset({
       title: '',
-      totalQuantity: '',
     });
   }
 }
