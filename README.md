@@ -16,9 +16,5 @@ This project demonstrates a custom form control in Angular using Angular Materia
   ```sh
   ng build
   ```
-- **Run tests:**
-  ```sh
-  ng test
-  ```
 
 The form uses Angular Material and showcases a custom control (`totalQuantity`).
