@@ -1,12 +1,22 @@
 <form class="form" [formGroup]="form" (ngSubmit)="submit()">
-  <mat-form-field appearance="fill">
-    <mat-label>Course title</mat-label>
-    <input matInput placeholder="Course title" formControlName="title" />
+  <mat-form-field>
+    <mat-label>Choose food</mat-label>
+    <mat-select formControlName="food">
+      @for (food of foods; track food) {
+      <mat-option [value]="food.value">{{ food.viewValue }} </mat-option>
+      }
+    </mat-select>
   </mat-form-field>
 
   <app-choose-quantity
     [increment]="10"
     formControlName="totalQuantity"
   ></app-choose-quantity>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Write a comment</mat-label>
+    <input matInput placeholder="Your comment" formControlName="comment" />
+  </mat-form-field>
+
   <button type="submit" mat-flat-button>Submit</button>
 </form>

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { ChooseQuantityComponent } from '../choose-quantity/choose-quantity.component';
 
 @Component({
@@ -16,6 +17,7 @@ import { ChooseQuantityComponent } from '../choose-quantity/choose-quantity.comp
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
   ],
   templateUrl: './form-custom.component.html',
   styleUrl: './form-custom.component.scss',
@@ -27,15 +29,22 @@ export class FormCustomComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      title: [''],
-      totalQuantity: [60, [Validators.required, Validators.max(100)]],
+      food: [''],
+      totalQuantity: [10, [Validators.required, Validators.max(100)]],
+      comment: [''],
     });
   }
 
   submit() {
     console.log(this.form.value);
     this.form.reset({
-      title: '',
+      comment: '',
     });
   }
+
+  foods: any = [
+    { value: 'steak', viewValue: 'Steak' },
+    { value: 'pizza', viewValue: 'Pizza' },
+    { value: 'tacos', viewValue: 'Tacos' },
+  ];
 }
