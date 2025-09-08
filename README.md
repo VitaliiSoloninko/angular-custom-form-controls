@@ -16,5 +16,7 @@ This project demonstrates a custom form control in Angular using Angular Materia
   ```sh
   ng build
   ```
+- **Preview the deployed site:**
+  [View on Netlify](https://sparkling-frangollo-36156e.netlify.app/)
 
 The form uses Angular Material and showcases a custom control (`totalQuantity`).
