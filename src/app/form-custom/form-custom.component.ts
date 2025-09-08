@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -18,12 +19,20 @@ import { ChooseQuantityComponent } from '../choose-quantity/choose-quantity.comp
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    JsonPipe,
   ],
   templateUrl: './form-custom.component.html',
   styleUrl: './form-custom.component.scss',
 })
 export class FormCustomComponent implements OnInit {
   form!: FormGroup;
+  orderInfo: any = null;
+
+  foods: any = [
+    { value: 'steak', viewValue: 'Steak' },
+    { value: 'pizza', viewValue: 'Pizza' },
+    { value: 'tacos', viewValue: 'Tacos' },
+  ];
 
   constructor(private fb: FormBuilder) {}
 
@@ -37,14 +46,9 @@ export class FormCustomComponent implements OnInit {
 
   submit() {
     console.log(this.form.value);
+    this.orderInfo = this.form.value;
     this.form.reset({
       comment: '',
     });
   }
-
-  foods: any = [
-    { value: 'steak', viewValue: 'Steak' },
-    { value: 'pizza', viewValue: 'Pizza' },
-    { value: 'tacos', viewValue: 'Tacos' },
-  ];
 }

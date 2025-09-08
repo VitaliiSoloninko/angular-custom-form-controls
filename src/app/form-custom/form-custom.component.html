@@ -20,3 +20,8 @@
 
   <button type="submit" mat-flat-button>Submit</button>
 </form>
+
+@if (orderInfo) {
+<h3>Order info</h3>
+<pre>{{ orderInfo | json }}</pre>
+}
