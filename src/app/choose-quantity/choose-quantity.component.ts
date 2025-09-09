@@ -1,5 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  NG_VALIDATORS,
+  NG_VALUE_ACCESSOR,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -13,9 +20,16 @@ import { MatIconModule } from '@angular/material/icon';
       multi: true,
       useExisting: ChooseQuantityComponent,
     },
+    {
+      provide: NG_VALIDATORS,
+      multi: true,
+      useExisting: ChooseQuantityComponent,
+    },
   ],
 })
-export class ChooseQuantityComponent implements ControlValueAccessor {
+export class ChooseQuantityComponent
+  implements ControlValueAccessor, Validator
+{
   quantity = 0;
 
   @Input()
@@ -66,5 +80,17 @@ export class ChooseQuantityComponent implements ControlValueAccessor {
 
   setDisabledState(disabled: boolean) {
     this.disabled = disabled;
+  }
+
+  validate(control: AbstractControl): ValidationErrors | null {
+    const quantity = control.value;
+    if (quantity <= 0) {
+      return {
+        mustBePositive: {
+          quantity,
+        },
+      };
+    }
+    return null;
   }
 }

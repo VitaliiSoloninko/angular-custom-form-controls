@@ -13,6 +13,12 @@
     formControlName="totalQuantity"
   ></app-choose-quantity>
 
+  @if (form.get('totalQuantity')?.hasError('mustBePositive')) {
+  <mat-error class="center"> Quantity must be positive! </mat-error>
+  } @if (form.get('totalQuantity')?.hasError('max')) {
+  <mat-error class="center"> Quantity must not exceed 100! </mat-error>
+  }
+
   <mat-form-field appearance="fill">
     <mat-label>Write a comment</mat-label>
     <input matInput placeholder="Your comment" formControlName="comment" />
